@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Login from './Login';
+import Logout from './Logout';
+import { useAuth } from '../context/AuthProvider';
 function Navbar() {
+   const[authUser,setaAuthUser]=useAuth();
+
     const [theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("theme"):"light"
 );
 const element =document.documentElement;
@@ -110,7 +114,11 @@ useEffect(()=>{
               </svg>
             </label>
 
-            {/* Login */}
+            {
+              authUser?<Logout/>:
+              <div className=''> 
+              
+              {/* Login */}
             <a className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition cursor-pointer "
             onClick={()=>
                 document.getElementById("my_modal_3").showModal()
@@ -119,6 +127,10 @@ useEffect(()=>{
               Login
             </a>
            <Login/>
+           </div>
+            }
+
+            
           </div>
         </div>
       </div>
