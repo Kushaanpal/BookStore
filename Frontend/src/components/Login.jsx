@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
+import API from '../api';
 
 const Login = () => {
    const location=useLocation();
@@ -21,7 +22,7 @@ const Login = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:4001/user/login", userInfo);
+      const res = await axios.post(`${API}/user/login`, userInfo);
       
       // Check if response contains user data
       if (res.data) {

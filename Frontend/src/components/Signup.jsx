@@ -4,6 +4,7 @@ import Login from './Login';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from 'react-hot-toast';
+import API from '../api';
 
 const Signup = () => {
   const location=useLocation();
@@ -22,7 +23,7 @@ const Signup = () => {
       password: data.password,
     };
 
-    await axios.post("http://localhost:4001/user/signup", userInfo) // changed endpoint to `/signup`
+    await axios.post(`${API}/user/signup`, userInfo) // changed endpoint to `/signup`
       .then((res) => {
         console.log(res.data);
         if (res.data) {
