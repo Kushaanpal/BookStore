@@ -8,7 +8,10 @@ import cors from "cors"
 import bookRoute from "./route/book.route.js";
 import userRoute from "./route/user.route.js";
 
-app.use(cors());
+app.use(cors({
+  origin:"https://bookstore-1-72zn.onrender.com",
+  credentials: true
+}));
 app.use(express.json());//parse
 
 dotenv.config(); 
