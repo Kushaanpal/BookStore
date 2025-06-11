@@ -37,7 +37,10 @@ const Course = () => {
            <button className='mt-6 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-200'>
                     Back
             </button>
-           </Link>
+           </Link>{/*navigate between pages   
+           do not do page reload 
+           Keeps react state
+           smooth transitions*/}
         </div>
         <div className='mt-12 grid grid-cols-1 md:grid-cols-4'>
             {book.map((item)=>{
