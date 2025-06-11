@@ -8,13 +8,13 @@ function Navbar() {
 
     const [theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("theme"):"light"
 );
-const element =document.documentElement;
+const element =document.documentElement; 
 useEffect(()=>{
     if(theme==="dark"){
         element.classList.add("dark");
         localStorage.setItem("theme","dark");
         document.body.classList.add("dark");
-    }else{
+    }else {
         element.classList.remove("dark");
         localStorage.setItem("theme","light");
         document.body.classList.remove("dark");
@@ -23,6 +23,8 @@ useEffect(()=>{
 
 
 
+//useState=>use to manage and update state
+//useEffect=> use to handle side effects during component mount ,unmount,update
 
   const [sticky, setSticky] = useState(false);
 
@@ -31,8 +33,8 @@ useEffect(()=>{
       setSticky(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);//Adds an event listener to run handleScroll whenever the user scrolls.
+    return () => window.removeEventListener("scroll", handleScroll);//  removes the scroll listener when the component unmounts (to prevent memory leaks).
   }, []);
 
   const navItems = (
