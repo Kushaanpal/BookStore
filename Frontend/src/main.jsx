@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import AuthProvider from './context/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter>{/*It wraps the whole app so that components like <Route> and <Link> can work. */}
   <AuthProvider>
    <App />
   </AuthProvider>
